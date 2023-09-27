@@ -23,7 +23,6 @@ export default () => {
       Highlight,
       TaskItem.configure({ nested: true }),
       TaskList,
-      ,
       Typography,
     ],
     editorProps: {
