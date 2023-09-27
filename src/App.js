@@ -4,6 +4,8 @@ import Highlight from '@tiptap/extension-highlight'
 import Typography from '@tiptap/extension-typography'
 import { EditorContent, useEditor } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
+import TaskItem from '@tiptap/extension-task-item'
+import TaskList from '@tiptap/extension-task-list'
 import React from 'react'
 import { debounce } from 'lodash'
 
@@ -16,7 +18,14 @@ export default () => {
     onUpdate: debounce(() => {
       localStorage.setItem(localStorageKey, editor.getHTML())
     }, 1000),
-    extensions: [StarterKit, Highlight, Typography],
+    extensions: [
+      StarterKit,
+      Highlight,
+      TaskItem.configure({ nested: true }),
+      TaskList,
+      ,
+      Typography,
+    ],
     editorProps: {
       attributes: {
         class: '',
